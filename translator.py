@@ -16,6 +16,12 @@ lan1 = StringVar(window)
 lan2= StringVar(window)
 
 
+def trans():
+    translator = Translator(from_lan = lan1.get(), to_lang=lan2.get())
+    translation = translator.translate(var.get())
+    var1.set(translation)
+
+
 #translator= Translator(to_lang="German")
 #translation = translator.translate("Good Morning!")
 
@@ -41,13 +47,8 @@ Label(mainframe, text ="output").grid(row=2,column=2)
 var1 = StringVar()
 textbox = Entry(mainframe , textvariable = var1).grid(row=2,column=3)
 
-button = Button(mainframe,text= 'translate', command= "trans").grid(row=3,column=1, columnspan=3)
+button = Button(mainframe,text= 'translate', command= trans).grid(row=3,column=1, columnspan=3)
 
-
-def trans():
-    translator = Translator(from_lan = 'english', to_lang='telugu')
-    translation = translator.translate("hi")
-    var1.set(translation)
 
 
 
